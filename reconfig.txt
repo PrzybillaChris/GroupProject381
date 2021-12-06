@@ -1,0 +1,3 @@
+crypto map Crypt 10 ipsec-isakmp
+no set peer 172.16.0.3
+set peer 172.16.0.2
