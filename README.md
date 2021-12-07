@@ -40,6 +40,13 @@ Using the same login as the webex developer account sign into Webex Teams and se
 Now that we have this all set up, we can almost use out chatbot with the commands in the 381Bot.py file.
 Below are tutorials on how to set up each of the functions with your own devices. Note the devices used for making this program were hosted in Oracle VM Virtualbox, so you will have to change the ip address settings for the devices for them to work properly.
 
+## Starting the chatbot Tutorial
+To start the chatbot to work with any of the program files you will first need to start the chatbot. To do this first start your ngrok session and copy the session id into the 381Bot.py file.
+Then go into visual studio code or its equivilent and open a ternial(by hitting terminal -> New terminal) if one isnt already open and enter the command 381Bot.py. This will start the python program and connect it to the chatbot for response.
+It will look something similar to this and once it goes to the connected page you can begin sending commands to the chatbot.
+![image](https://user-images.githubusercontent.com/94020133/145112430-cc51d9ac-c100-4773-be21-7bfb8f11f5a1.png)
+
+
 
 ## Paramiko Tutorial
 For you to get the code you would need to download Oracle VM VirtualBox Manager and need 3 VMs. 2 that would act like a router and the VM that can act like the desktop. You would first need to create a bot that can chat with you on Webex developer. Do not have an account then create one. With a bot made then you write some code that will give the bot something to do for you. Sometimes you would want to see the output of all your coding for a router. With the code that is written down will show you the running-config of the router that you want. That being either router1 or router2. With that you would need to have something that will show the running-configuration or the configuration that you made for the router. It can help troubleshoot if there is a problem and just to see the finished product of your hard work coding for the router. The code that I wrote will go through the router with the use of Paramiko that will put the entries of enable, config terminal, username and password then show running-configuration command (show run). 
@@ -115,9 +122,39 @@ If the user types in “changeint enable 1”, router 1’s GigabitEthernet 2 in
 
 
 
-## Ansible Program tutorial
+## Ansible Program Tutorial
 
 In this tutorial I will go over how to get the anisble program working.
+The ansible function is for backing up a device's running configuration.
+In the chatbot type either backup or router2 to bakup either device.
+To donfigure these devices in the settings go the their correspondent hosts and playbook files detailed in their function catagories
+![image](https://user-images.githubusercontent.com/94020133/145112774-27fe3488-ddb1-4baf-a19c-6289b38d663a.png)
+Enter in the ip address of the device along with the username and password for ssh to connect to it in the hosts file.
+![image](https://user-images.githubusercontent.com/94020133/145113053-c15e3ca7-1c33-43fd-9116-66cebee2150c.png)
+Then in the backup_cisco_router_playbook.yaml files just change the hosts variable to the hostname on the device itself.
+![image](https://user-images.githubusercontent.com/94020133/145113270-befec283-afd6-481f-8a8b-eb68d23b7cc1.png)
+
+From here the program will run and save the running config of the devices to the backups folder with the command that was run and on the device specified.
+![image](https://user-images.githubusercontent.com/94020133/145113386-0c2a1558-861e-4b23-8fce-2616b04bd519.png)
+
+
+## Genie Robot Tutorial
+This function titled monitor_int is used to continually monitor the status of interfaces on the two routers. Checking their status if they are up or down and reporting it back to the chatbot.
+With this program it is goof to note that you only need to modify the routers/yml file in the testbed folder.
+Edit the ip, password, and username fields to make this operational. Note: make the password field appear in the encrpyted form it does in the devices show run section, not in plaintext.
+Once this is done you can run the 'monitor interfaces' command. This will use the monitor_int function. From here it will monitor the interfaces every 20 seconds and send updates to the bots interface. On all interfaces being up it will display:
+![image](https://user-images.githubusercontent.com/94020133/145114487-ac6f4381-885d-4762-a7c5-8584aac33a28.png)
+On an interace going down it will display:
+![image](https://user-images.githubusercontent.com/94020133/145114574-9334c1ac-c462-41f3-b6ed-85b7d57597b6.png)
+This allows for network admins to distinguish problems with their interfaces and fix them accordingly.
+You can use the 'stop monitoring' command at any time to stop the monitor.
+This program utilizes the testbed to connect to the routers and set up to connection for future use in the monitoring session.
+
+## Genie Monitoring for diaster Tutorial
+Much like the previous monitoring function, this will monitor interfaces and their states. This one however is meant to be used on one interface in the event that it would change or whatever reason it may be. 
+So as with the previous tutorial examine the routers/yml file ad change the ip, password, and username fields.
+Once here we need to modify a couple of files to the speicifcations of your devices.
+
 
 
 
