@@ -1,6 +1,44 @@
 # GroupProject381
-A group project for the class Programmability and Automation 381 by Chris Przybilla, Ben Strangler, and Jacob Mahoney
+A group project for the class 381 - Programmability and Automation by Chris Przybilla, Ben Strangler, and Jacob Mahoney
 
+## Environment setup
+In this tutorial we will go over the basic how-to's of how this program works.
+The current set up is intended for two routers connected over the internet with BGP as their routing protocol. They will be managed through this program.
+![image](https://user-images.githubusercontent.com/94020133/145106170-3dc82eba-3585-4536-99fd-ab2207d99697.png)
+
+We will be using a Webex chatbot to accomplish tasks.
+# What you will need for this bot.
+•	Oracle VM VirtualBox Manager software
+•	2 CSR1kv VMs for the routers
+•	Webex developer/teams & an account affiliated with them
+•	An Ngrok server hosted on a linux based client
+•	Visual Studio code for running the program(or other programs that can run code)
+
+To start out with this project load the files into your coding program and open up the 381Bot.py file.
+From here scoll down until you see the bot details section:
+![image](https://user-images.githubusercontent.com/94020133/145107177-fbeab37f-8bbe-4e82-b48f-439adfa5474d.png)
+
+Enter in the information needed by the code to access your chatbot. Which includs the bots address, your teams token, and finally your ngrok session link.
+The ngrok session link can be found after creating a session in a terminal window. Open a terminal window and enter the command 'ngok http 5000'
+This will open an ngrok session for you to use. Copy and paste the https link from here and paste it into the 381Bot.py code.
+![image](https://user-images.githubusercontent.com/94020133/145107537-92f103eb-1fd1-4112-82c7-032cc3275fb9.png)
+
+Once you have these in there, go to the uselessskills.py file and enter your webex teams token again into the teams_token variable quotes.
+![image](https://user-images.githubusercontent.com/94020133/145107730-d024e698-552f-443d-a9fb-adfb640d4448.png)
+
+If you do not already have one already, make a webex for developers account. Got to start making apps and create a new application.
+![image](https://user-images.githubusercontent.com/94020133/145109003-1ee3f1a4-157d-40b8-95bd-65121e71ec9a.png)
+![image](https://user-images.githubusercontent.com/94020133/145109044-b9bf4ec1-ec5c-46c6-89c5-3b0a20518052.png)
+Select Create a bot
+
+![image](https://user-images.githubusercontent.com/94020133/145109119-80305e33-c656-47ba-aa22-bc9fc9caf92d.png)
+
+Upon finishing the completion of making the bot you will be presented with your bots access token. Enter this is in the bots address line in the 381Bot.py file.
+
+Using the same login as the webex developer account sign into Webex Teams and set up a chat session with the chatbot. Just enter the bot access token in as the person to add in the conversation.
+
+Now that we have this all set up, we can almost use out chatbot with the commands in the 381Bot.py file.
+Below are tutorials on how to set up each of the functions with your own devices. Note the devices used for making this program were hosted in Oracle VM Virtualbox, so you will have to change the ip address settings for the devices for them to work properly.
 
 
 ## Paramiko Tutorial
@@ -49,32 +87,6 @@ Then you would need to add a bot.add command to make sure that you can add the c
 That should be the end and you should be able to finish the code then.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Netconf Tutorial
 
 Sometimes, certain events will require an interface to be shut down or turned on and its connection terminated or restored. For this reason, it can be beneficial to have an easy way to turn these interfaces off with one simply line of code rather than having to enter the device’s console, enter the exec password, enter global configuration mode, select the interface, and then turn it off or on. With the help of a Webex bot and Netconf, we can turn this long hassle into a simple, one-line, command that does all the work for you.
@@ -100,3 +112,13 @@ From here, a config command using XML is created. The interface that will be tur
 
  
 If the user types in “changeint enable 1”, router 1’s GigabitEthernet 2 interface will be set to up, and a response of “Int G2 was successfully enabled.” will display on the bot. The same thing will happen to router 2 if the user changes the 1 in “changeint enable 1” to a 2. If the user wishes to shut down the interface in question, they can change the enable portion of the command to disable (changeint disable 2). This will, in turn, send a response through the Webex bot that says “Int G2 was successfully disabled”. If the user, by chance, misspells any part of the command or enters any invalid variables, the bot will respond with “Wrong command, please try again.” instructing the user that they messed up somewhere in the command. 
+
+
+
+## Ansible Program tutorial
+
+In this tutorial I will go over how to get the anisble program working.
+
+
+
+
