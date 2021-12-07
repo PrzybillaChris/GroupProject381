@@ -1,11 +1,11 @@
 # GroupProject381
 A group project for the class Programmability and Automation 381 by Chris Przybilla, Ben Strangler, and Jacob Mahoney
 
-##Netconf Tutorial
+## Netconf Tutorial
 
 Sometimes, certain events will require an interface to be shut down or turned on and its connection terminated or restored. For this reason, it can be beneficial to have an easy way to turn these interfaces off with one simply line of code rather than having to enter the device’s console, enter the exec password, enter global configuration mode, select the interface, and then turn it off or on. With the help of a Webex bot and Netconf, we can turn this long hassle into a simple, one-line, command that does all the work for you.
 
-#Required Resources:
+# Required Resources:
 •	Visual Studio Software
 •	2 virtual CSR1000 machines
 •	A Webex Teams account
