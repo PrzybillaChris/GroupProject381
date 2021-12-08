@@ -16,6 +16,7 @@ We will be using a Webex chatbot to accomplish tasks.
 
 To start out with this project load the files into your coding program and open up the 381Bot.py file.
 From here scoll down until you see the bot details section:
+
 ![image](https://user-images.githubusercontent.com/94020133/145107177-fbeab37f-8bbe-4e82-b48f-439adfa5474d.png)
 
 Enter in the information needed by the code to access your chatbot. Which includs the bots address, your teams token, and finally your ngrok session link.
