@@ -43,7 +43,7 @@ Below are tutorials on how to set up each of the functions with your own devices
 
 ## Starting the chatbot Tutorial
 To start the chatbot to work with any of the program files you will first need to start the chatbot. To do this first start your ngrok session and copy the session id into the 381Bot.py file.
-Then go into visual studio code or its equivilent and open a ternial(by hitting terminal -> New terminal) if one isnt already open and enter the command 381Bot.py. This will start the python program and connect it to the chatbot for response.
+Then go into visual studio code or its equivilent and open a ternial(by hitting terminal -> New terminal) if one isnt already open and enter the command python3 381Bot.py. This will start the python program and connect it to the chatbot for response.
 It will look something similar to this and once it goes to the connected page you can begin sending commands to the chatbot.
 ![image](https://user-images.githubusercontent.com/94020133/145112430-cc51d9ac-c100-4773-be21-7bfb8f11f5a1.png)
 
@@ -152,9 +152,26 @@ You can use the 'stop monitoring' command at any time to stop the monitor.
 This program utilizes the testbed to connect to the routers and set up to connection for future use in the monitoring session.
 
 ## Genie Monitoring for diaster Tutorial
-Much like the previous monitoring function, this will monitor interfaces and their states. This one however is meant to be used on one interface in the event that it would change or whatever reason it may be. 
+Much like the previous monitoring function, this will monitor interfaces and their states. This one however is meant to be used on one interface in the event that it would change or whatever reason it may be. The purpose is to restore a site-to-site vpn connection that would go down as a result of an ip address changing.
 So as with the previous tutorial examine the routers/yml file ad change the ip, password, and username fields.
-Once here we need to modify a couple of files to the speicifcations of your devices.
+Once here we need to modify a couple of files to the specifications of your devices.
+Since this setup is meant to change the ip address of a changing interface, we need to adjust the ip of the device that doesn't change. Go to the intial_ip.py file and change the 2nd if statements ip address to the ip of the device that is not changing.
+![image](https://user-images.githubusercontent.com/94020133/145125422-4eaa3c0b-b58a-4bed-a602-b0c5be488dfb.png)
+In the monitor_VPN_int.py file, so the same thing as the previous step and change the ip address to the address of the device that will not be changing.
+![image](https://user-images.githubusercontent.com/94020133/145125595-481c3268-1845-43d9-8471-ae6ab8666560.png)
+From here the code is ready to run
+Enter monitor-vpn into the chatbot to start the code.
+What this function will do is: 
+•	Check the intial ip on start of the command and store it into a variable
+•	Check the current ip address of the interface
+•	Compare the old ip address to the new ip address.
+•	If they are the same then the code will do nothing and wait for the duration of the timer to test it again. The timer can be changed to a different value in the monitor_vpn_job function at any time.
+•	If the addresses are different, then the program reconfigure the vpn addressing int he running config to reflect the new topology.
+•	The new address will be saved into the old_ip variable to then be tested on future values by the program.
+
+As a note the bot gives no indication that it is running, this part is intentional so that any addressing changes can be easily found and recorded if need be. That being said any changes in ip addressing found by this program will be directly sent to the chatbot.
+![image](https://user-images.githubusercontent.com/94020133/145127949-829dd63a-e5d0-4a5b-88b2-69c44c8038fb.png)
+
 
 
 
