@@ -1,5 +1,5 @@
 # GroupProject381
-## Welcome to out project!
+## Welcome to our project!
 A group project for the class 381 - Programmability and Automation by Chris Przybilla, Ben Strangler, and Jacob Mahoney
 
 ## Environment setup
